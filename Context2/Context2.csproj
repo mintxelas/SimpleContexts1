@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Messaging\Pulsar\Messaging.Pulsar\Messaging.Pulsar.csproj" />
+    <ProjectReference Include="..\..\Messaging\Rabbit\Messaging.Rabbit\Messaging.Rabbit.csproj" />
     <ProjectReference Include="..\SharedEvents\SharedEvents.csproj" />
   </ItemGroup>
 

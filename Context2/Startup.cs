@@ -2,7 +2,7 @@ using Context2.Application;
 using Context2.Domain;
 using Context2.Infrastructure;
 using Context2.Subscriptions;
-using Messaging.Pulsar;
+using Messaging.Rabbit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +17,7 @@ namespace Context2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<Messaging.Common.IMessaging>(new PublishSubscribe("pulsar://localhost:6650", "intercontextcomm"));
+            services.AddSingleton<Messaging.Common.IMessaging>(new PublishSubscribe("localhost", "intercontextcomm"));
             services.AddSingleton<OneSubscriber>();
             services.AddSingleton<AnotherSubscriber>();
             services.AddScoped<IRepository<RepositoryWithSubscribers>, RepositoryWithSubscribers>();
