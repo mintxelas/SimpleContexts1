@@ -1,8 +1,9 @@
-﻿using Context1.Domain;
-using Context1.Subscriptions;
+﻿using System.Threading.Tasks;
+using Context2.Domain;
+using Context2.Subscriptions;
 using SharedEvents;
 
-namespace Context1.Infrastructure
+namespace Context2.Infrastructure
 {
     public class RepositoryWithSubscribers: IRepository<RepositoryWithSubscribers>
     {
@@ -20,12 +21,15 @@ namespace Context1.Infrastructure
             return new Processor();
         }
 
-        public void Save(Processor processor)
+        public Task SaveAsync(Processor processor)
         {
             var @event = new SomeEvent();
             subscriber1.DoSomething(@event);
             subscriber2.DoSomething(@event);
+            
             // Save processor
+
+            return Task.CompletedTask;
         }
     }
 }

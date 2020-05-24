@@ -1,6 +1,6 @@
 ﻿using SharedEvents;
 
-namespace Context1.Domain
+namespace Context2.Domain
 {
     public partial class Processor
     {

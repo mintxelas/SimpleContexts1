@@ -1,11 +1,11 @@
-﻿using Context1.Application;
-using Context1.Domain;
-using Context1.Infrastructure;
-using Context1.Subscriptions;
+﻿using Context2.Application;
+using Context2.Domain;
+using Context2.Infrastructure;
+using Context2.Subscriptions;
 using Microsoft.AspNetCore.Mvc;
 using SharedEvents;
 
-namespace Context1.Controllers
+namespace Context2.Controllers
 {
     [ApiController]
     [Route("[controller]")]

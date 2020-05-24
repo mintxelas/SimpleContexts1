@@ -1,4 +1,4 @@
-﻿namespace Context1.Domain
+﻿namespace SharedEvents
 {
     public class SomeEvent
     {

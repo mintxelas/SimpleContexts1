@@ -1,12 +1,13 @@
 ﻿using Context1.Domain;
+using Messaging.Common;
 
 namespace Context1.Infrastructure
 {
     public class RepositoryWithBus: IRepository<RepositoryWithBus>
     {
-        private readonly Bus bus;
+        private readonly IMessaging bus;
 
-        public RepositoryWithBus(Bus bus)
+        public RepositoryWithBus(IMessaging bus)
         {
             this.bus = bus;
         }
@@ -19,7 +20,7 @@ namespace Context1.Infrastructure
         public void Save(Processor processor)
         {
             var publisher = processor as IPublishEvents;
-            publisher.GetEvents().ForEach(bus.Publish);
+            publisher.GetEvents().ForEach(x => bus.Publish(x).Wait());
             publisher.ClearEvents();
 
             // Save processor

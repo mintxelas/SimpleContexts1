@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
-using Context1.Domain;
+﻿using Context2.Domain;
 
-namespace Context1.Application
+namespace Context2.Application
 {
     public class ApplicationService<T> where T: class, IRepository<T>
     {
@@ -16,7 +15,7 @@ namespace Context1.Application
         {
             var processor = repository.Get();
             processor.Process();
-            repository.Save(processor);
+            repository.SaveAsync(processor);
 
 
 

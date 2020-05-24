@@ -1,14 +1,14 @@
-using Context1.Application;
-using Context1.Domain;
-using Context1.Infrastructure;
-using Context1.Subscriptions;
+using Context2.Application;
+using Context2.Domain;
+using Context2.Infrastructure;
+using Context2.Subscriptions;
 using Messaging.Pulsar;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Context1
+namespace Context2
 {
     public class Startup
     {
@@ -16,7 +16,7 @@ namespace Context1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(); 
+            services.AddControllers();
             services.AddSingleton<Messaging.Common.IMessaging>(new PublishSubscribe("pulsar://localhost:6650", "intercontextcomm"));
             services.AddSingleton<OneSubscriber>();
             services.AddSingleton<AnotherSubscriber>();

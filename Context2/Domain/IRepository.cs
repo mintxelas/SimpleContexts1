@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 
-namespace Context1.Domain
+namespace Context2.Domain
 {
     public interface IRepository<T> where T: class, IRepository<T>
     {
         Processor Get();
-        void Save(Processor processor);
+        Task SaveAsync(Processor processor);
     }
 }

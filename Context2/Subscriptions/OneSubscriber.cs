@@ -1,10 +1,9 @@
-﻿using Context1.Domain;
-using Messaging.Common;
+﻿using Messaging.Common;
 using Microsoft.Extensions.Logging;
-using System;
 using SharedEvents;
+using System;
 
-namespace Context1.Subscriptions
+namespace Context2.Subscriptions
 {
     public class OneSubscriber
     {
